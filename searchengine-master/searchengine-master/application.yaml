@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: sKotA13baseLok@
+    url: jdbc:mysql://localhost:3306/search_engine?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+indexing-settings:
+  sites:
+    - url: https://radiomv.ru
+      name: Милицейская волна
+    - url: http://www.playback.ru
+      name: PlayBack.ru
+    - url: https://www.svetlovka.ru
+      name: Светловка
+    - url: https://dombulgakova.ru
+      name: Булгаковский дом
+    - url: https://et-cetera.ru/mobile
+      name: Театр «Et Cetera»
+
+parsing-settings:
+  user-agent: YarikSearchBot/3.0
+  referer: https://yandex.ru
+  contentType: text/html; charset=utf-8
+  timeout: 13_000
+  thread-delay: 130
+  parallelism: 10
+
+search-settings:
+  limit: 20
+  offset: 0
+  threshold: 1000
+  snippetSize: 50
